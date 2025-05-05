@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Rentabilidad del Portafolio</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <style>
+        body { font-family: 'IBM Plex Sans', sans-serif; margin: 20px; }
+        table { border-collapse: collapse; margin-top: 20px; }
+        th, td { padding: 12px; border: 1px solid #ddd; text-align: left; }
+        th { background-color: #f8f9fa; }
+        .positive { color: #27ae60; }
+        .negative { color: #c0392b; }
+    </style>
+</head>
+<body>
+    <h1>Rentabilidad del Portafolio</h1>
+    <table id="profitabilityTable">
+        <tr><th>Acción</th><th>Rentabilidad</th><th>Precio Actual</th></tr>
+    </table>
+
+    <script>
+        fetch('/portfolio/profitability')
+            .then(response => response.json())
+            .then(data => {
+                const table = document.getElementById('profitabilityTable');
+                data.forEach(item => {
+                    const row = table.insertRow();
+                    row.innerHTML = `
+                        <td><a href="/html/portfolio/profitability/${item.symbol}">${item.name}</a></td>
+                        <td class="${item.profitability_percentage >= 0 ? 'positive' : 'negative'}">
+                            ${item.profitability_percentage.toFixed(2)}%
+                        </td>
+                        <td>$${item.current_price.toFixed(2)}</td>
+                    `;
+                });
+            });
+    </script>
+</body>
+</html>
