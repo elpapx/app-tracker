@@ -1,3 +1,4 @@
+
 import yfinance as yf
 import pandas as pd
 import numpy as np
@@ -9,16 +10,19 @@ from psycopg2 import sql
 from typing import Dict, List
 from pathlib import Path
 from datetime import datetime
+from dotenv import load_dotenv
 
+# Cargar variables de entorno
+load_dotenv()
 
 # Configuración centralizada
 class ScraperConfig:
-    # Configuración de PostgreSQL
-    PG_HOST = "98.85.189.191"
-    PG_PORT = 5432
-    PG_USER = "bvl_user"
-    PG_PASSWORD = "179fae82"
-    PG_DATABASE = "bvl_monitor"
+    # Configuración de PostgreSQL desde variables de entorno
+    PG_HOST = os.getenv("DB_HOST", "localhost")
+    PG_PORT = int(os.getenv("DB_PORT", "5432"))
+    PG_USER = os.getenv("DB_USER", "bvl_user")
+    PG_PASSWORD = os.getenv("DB_PASSWORD", "179fae82")
+    PG_DATABASE = os.getenv("DB_NAME", "bvl_monitor")
 
     # Configuración de rutas
     SCRIPT_DIR = Path(__file__).parent
