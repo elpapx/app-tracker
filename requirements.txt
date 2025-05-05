@@ -1,37 +1,33 @@
 # API y Servidor Web
-fastapi==0.103.1
-uvicorn==0.23.2
-starlette==0.27.0
-pydantic==2.3.0
+fastapi
+uvicorn
+starlette
+pydantic
 
 # Base de Datos
-psycopg2-binary==2.9.7
-sqlalchemy==2.0.20
+psycopg2-binary
+sqlalchemy
 
 # Herramientas de Data Science
-pandas==2.1.0
-numpy==1.25.2
+pandas
+numpy
 
 # Scraping y APIs
-yfinance==0.2.28
-requests==2.31.0
-beautifulsoup4==4.12.2
+yfinance
+requests
+beautifulsoup4
 
 # Monitoreo y Sistema
-psutil==5.9.5
+psutil
 
 # Fechas y Tiempo
-python-dateutil==2.8.2
-pytz==2023.3
+python-dateutil
+pytz
 
 # Utilidades
-python-dotenv==1.0.0
-tabulate==0.9.0
+python-dotenv
+tabulate
 
 # Visualización (si aplica para generar gráficos estáticos)
-matplotlib==3.7.2
-seaborn==0.12.2
-
-# Opcionales pero recomendados
-tqdm==4.66.1  # Barras de progreso para operaciones largas
-loguru==0.7.0  # Mejor manejo de logs
+matplotlib
+seaborn
